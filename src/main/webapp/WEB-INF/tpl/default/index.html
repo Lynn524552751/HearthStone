@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head th:include="${tpl} + '/_inc/head'::min"></head>
+<body>
+	<!-- Header Start -->
+  	<header th:include="${tpl} + '/_inc/header'::min" />
+	<!-- Header End -->
+
+	<!-- Main Container start -->
+	<div class="dashboard-container">
+		<div class="container">
+			<!-- Top Nav Start -->
+			<div id='cssmenu'   th:include="${tpl} + '/_inc/nav'::top"/>
+			<!-- Top Nav End -->
+
+			<!-- Sub Nav End -->
+			<div class="sub-nav hidden-sm hidden-xs"  th:include="${tpl} + '/_inc/sub'::top"/>
+			<!-- Sub Nav End -->
+			
+			<!-- Dashboard Wrapper Start -->
+			<div class="dashboard-wrapper-lg">
+				<h1>index：<t ></t></h1>
+			</div>
+			<!-- Dashboard Wrapper End -->
+
+			<footer th:include="${tpl} + '/_inc/foot'::min" />
+
+		</div>
+	</div>
+	<!-- Main Container end -->
+	<spt th:include="${tpl} + '/_inc/script'::dwr" />
+
+	<spt th:include="${tpl} + '/_inc/script'::jquery_min" />	
+	<spt th:include="${tpl} + '/_inc/script'::jquery_ui" />
+	<spt th:include="${tpl} + '/_inc/script'::jquery_scrollUp" />
+	<spt th:include="${tpl} + '/_inc/script'::jquery_datepicker" />
+	<spt th:include="${tpl} + '/_inc/script'::menu" />
+
+	<!-- Custom JS -->
+	<script th:src="@{${tpl}+'/res/js/custom.js'}" ></script>
+	<script type="text/javascript"
+		th:src="@{${tpl}+'/res/cjs/Date.format.js'}"></script>
+	<spt th:include="${tpl} + '/_inc/script'::alertify" />
+	<!-- page Js -->
+	<script type='text/javascript' th:src="@{${tpl}+'/res/cjs/'+${navApp}+'.js'}"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<spt th:fragment="jquery_min">
+	<script th:src="@{${tpl}+'/res/js/jquery.js'}"></script>
+	<script th:src="@{${tpl}+'/res/js/bootstrap.min.js'}"></script>
+</spt>
+<spt th:fragment="jquery_scrollUp">
+	<script  th:src="@{${tpl}+'/res/js/jquery.scrollUp.js'}"></script>
+	<script type="text/javascript">
+	/*<![CDATA[*/
+		//IE下无console对象，则创建一个空对象
+		var console = console || {
+			log : function() {
+				return false;
+			}
+		}
+		//ScrollUp
+		function scrollUp() {
+			$.scrollUp({
+				scrollName : 'scrollUp', // Element ID
+				topDistance : '300', // Distance from top before showing element (px)
+				topSpeed : 300, // Speed back to top (ms)
+				animation : 'fade', // Fade, slide, none
+				animationInSpeed : 400, // Animation in speed (ms)
+				animationOutSpeed : 400, // Animation out speed (ms)
+				scrollText : 'Top', // Text for element
+				activeOverlay : false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+			});
+		}
+		/*]]>*/
+	</script>
+</spt>
+<spt th:fragment="jquery_ui">
+	<!-- jQuery UI JS -->
+	<script th:src="@{${tpl}+'/res/js/jquery-ui-v1.10.3.js'}"></script>
+</spt>
+<spt th:fragment="jquery_datepicker">
+	<link  th:href="@{${tpl} +'/res/css/bootstrap-datetimepicker.min.css'}" rel="stylesheet" />
+	<script th:src="@{${tpl}+'/res/js/date-picker/bootstrap-datetimepicker.min.js'}"></script>
+	<script th:src="@{${tpl}+'/res/js/date-picker/locales/bootstrap-datetimepicker.zh-CN.js'}"></script>
+</spt>
+<spt th:fragment="justgage">
+	<!-- Just Gage -->
+	<script th:src="@{${tpl}+'/res/js/justgage/justgage.js'}"></script>
+	<script th:src="@{${tpl}+'/res/js/justgage/raphael.2.1.0.min.js'}"></script>
+</spt>
+<spt th:fragment="alertify">
+	<link rel="stylesheet" type="text/css" th:href="@{${tpl}+'/res/css/alertify.core.css'}" />
+	<script type="text/javascript" th:src="@{${tpl}+'/res/js/alertify.min.js'}"></script>
+</spt>
+<spt th:fragment="flot">
+	<!-- Flot Charts -->
+	<script  th:src="@{${tpl}+'/res/js/flot/jquery.flot.js'}"></script>
+	<script  th:src="@{${tpl}+'/res/js/flot/jquery.flot.orderBar.min.js'}"></script>
+	<script  th:src="@{${tpl}+'/res/js/flot/jquery.flot.stack.min.js'}"></script>
+	<script  th:src="@{${tpl}+'/res/js/flot/jquery.flot.pie.min.js'}"></script>
+	<script  th:src="@{${tpl}+'/res/js/flot/jquery.flot.tooltip.min.js'}"></script>
+	<script  th:src="@{${tpl}+'/res/js/flot/jquery.flot.resize.min.js'}"></script>
+</spt>
+<spt th:fragment="menu">
+	<script th:src="@{${tpl}+'/res/js/menu.js'}"></script>
+</spt>
+<spt th:fragment="dwr">
+	<script th:src="@{${path}+'dwr/engine.js'}"/>
+	<script th:src="@{${path}+'dwr/util.js'}" />
+</spt>
+<spt th:fragment="dwrService(service)">
+	<script th:src="@{${path}+ 'dwr/interface/' + ${service} + '.js'}" />
+</spt>
+<spt th:fragment="ueditor">
+    <!-- 配置文件 -->
+    <script type="text/javascript"  th:src="@{${tpl}+'/res/js/UEditor/ueditor.config.js'}"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript"  th:src="@{${tpl}+'/res/js/UEditor/ueditor.all.min.js'}"></script>
+</spt>
+<spt th:fragment="dataTables">
+	<script  th:src="@{${tpl}+'/res/js/jquery.datatables.js'}"></script>
+</spt>
+<spt th:fragment="echarts">
+	<script  th:src="@{${tpl}+'/res/js/echarts/echarts.min.js'}"></script>
+</spt>
+<spt th:fragment="jqueryValidate( local )">
+	<script type='text/javascript' th:src="@{${tpl}+'/res/js/jquery.validate.min.js'}"></script>
+	<script type='text/javascript' th:src="@{${tpl}+'/res/js/localization/messages_'+ ${ local } +'.min.js'}"></script>
+</spt>
+<spt th:fragment="bootstrap_table">
+	<script type='text/javascript' th:src="@{${tpl}+'/res/js/bootstrap-table/bootstrap-table.min.js'}"></script>
+	<script type='text/javascript' th:src="@{${tpl}+'/res/js/bootstrap-table/locale/bootstrap-table-zh-CN.min.js'}"></script>
+	<link rel="stylesheet" type="text/css" th:href="@{${tpl}+'/res/css/bootstrap-table/bootstrap-table.css'}" />
+</spt>
+	

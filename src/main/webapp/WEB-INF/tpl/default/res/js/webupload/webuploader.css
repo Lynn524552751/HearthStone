@@ -1,0 +1,54 @@
+.webuploader-container {
+	position: relative;
+}
+
+.webuploader-element-invisible {
+	position: absolute !important;
+	clip: rect(1px, 1px, 1px, 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+}
+
+.webuploader-pick-disable {
+	opacity: 0.6;
+	pointer-events: none;
+}
+.wup-tool{
+	position: absolute;
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,
+		startColorstr='#80000000', endColorstr='#80000000') \0;
+	background: rgba(0, 0, 0, 0.7);
+	width: 80%;
+	overflow: hidden;
+	z-index: 300;
+	height: 25px;
+	top: 5;
+	left:  10;
+	padding-left: 2px;
+}
+.wup-info{
+	background: #f43838;
+    color: #fff;
+    position: absolute;
+    top: 5;
+    left: 10;
+    height: 28px;
+    line-height: 28px;
+    padding-left: 2px;
+    width: 80%;
+    z-index: 100;
+}
+.wup-info .title{
+	display: block;
+	overflow: hidden;
+}
+.wup-tool span{
+	color: #ffffff;
+}
+.wup-tool a {
+	cursor: hand;
+	color: #ffffff;
+}
+.wup-tool a:hover {
+	cursor: hand;
+	color: #ff6161;
+}

@@ -1,0 +1,52 @@
+<div th:fragment="top">
+	<ul th:if="${navApp1}">
+       <li th:if="${navApp1 ne null and navApp2 eq null and navApp3 eq null }">
+			<a th:href="@{ '/' + ${navApp1.navApp} }" th:text="${navApp1.navName}" class="selected heading"></a>
+			<li th:each="n2, st : ${ navs }" th:if="${ n2.parentId eq navApp1.id and n2.id ne navApp1.id }">
+				<a th:href="@{ '/' + ${navApp1.navApp} + '/' + ${n2.navApp} }" th:text="${n2.navName}"></a>
+       		</li>
+       </li>
+       <li th:if="${ navApp2 ne null and navApp3 eq null }">
+			<a th:href="@{ '/' + ${navApp1.navApp} + '/' + ${navApp2.navApp} }" th:text="${navApp2.navName}" class="selected heading"></a>
+       		<li th:each="n3, st : ${ navs }" th:if="${ n3.parentId eq navApp2.id }">
+				<a th:href="@{ '/' + ${navApp1.navApp} + '/' + ${navApp2.navApp} + '/' + ${n3.navApp} }" th:text="${n3.navName}"></a>
+       		</li>
+       </li>
+       <li th:if="${ navApp3 ne null }">
+			<a th:href="@{ '/' + ${navApp1.navApp} + '/' + ${navApp2.navApp} }" th:text="${navApp2.navName}" class="selected heading"></a>
+			<li th:each="n3, st : ${ navs }" th:if="${ n3.parentId eq navApp2.id }">
+				<a th:href="@{ '/' + ${navApp1.navApp} + '/' + ${navApp2.navApp} + '/' + ${navApp3.navApp} }" th:text="${n3.navName}"  th:class="${ n3.id eq navApp3.id ? 'selected':'' } "></a>
+       		</li>
+       </li>
+	</ul>
+	<div class="custom-search hidden-sm hidden-xs">
+		<input id="app1" type="hidden" th:value="${navApp1} ? ${navApp1.navApp} : ''" />
+		<input id="app2" type="hidden" th:value="${navApp2} ? ${navApp2.navApp} : ''" />
+		<input id="app3" type="hidden" th:value="${navApp3} ? ${navApp3.navApp} : ''" />
+		<input id="condition" type="text" class="search-query" placeholder="搜索内容 ..." />
+		<i class="fa fa-search" onclick="doAppSreach()"></i>
+	</div>
+	
+	<script>
+	function doAppSreach(){
+		var app1 = $("#app1").val();
+		var app2 = $("#app2").val();
+		var app3 = $("#app3").val();
+		var sreachUrl = "/COMBO-MGR";
+		if( app1 != "" ){ sreachUrl += "/" + app1; }
+		if( app2 != "" ){ sreachUrl += "/" + app2; }
+		if( app3 != "" ){ sreachUrl += "/" + app3; }
+		sreachUrl += "/sreach/" + $("#condition").val();
+		
+		window.location = sreachUrl;
+	}
+	</script>
+</div>
+
+<div th:fragment="top_off">
+        <div class="sub-nav hidden-sm hidden-xs">
+          <ul>
+            <li><a href="" class="selected heading"></a></li>
+          </ul>
+        </div>
+</div>

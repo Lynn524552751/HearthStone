@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+	<!-- Spring核心配置文件。主要配置数据代理等对象。 未标明可编辑项，请勿修改。 -->
+<beans>
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">  
+        <property name="beanNames">  
+            <list>  
+                <value>*DaoImpl</value>
+            </list>  
+        </property>  
+        <property name="interceptorNames">  
+            <list>  
+            	<!-- 默认拦截器 -->
+                <value>transactionInterceptor</value>
+                <!-- [可编辑] -->
+				<!-- 按需要添加或移除需要的其他数据库拦截器 -->				
+				<!-- <value>test2TransactionInterceptor</value>-->
+            </list>
+        </property>
+    </bean>
+	<!-- 连接池配置 -->
+	<bean id="dbPoolMaps" class="com.db.DBPoolMaps" singleton="true">
+		<property name="poolMaps">
+			<map>
+				<!-- 默认数据库 -->
+				<entry key="comDbDao" value-ref="comDbDaoImpl"></entry>
+				<!-- [可编辑] -->
+				<!-- 按需要添加或移除需要的其他数据库 -->
+				<!-- <entry key="otherPool" value-ref="otherDao"></entry>-->
+			</map>
+		</property>
+	</bean>
+	
+	<!-- 数据库代理方法。由com.abs.AbsDBDao实现和管理。 -->
+	<bean id="proxyFactory" class="com.abs.AbsDBExecutor" singleton="true">
+		<!-- 数据库连接池对象-->
+		<property name="dbDaoPoolMaps" ref="dbPoolMaps" />
+	</bean>
+</beans>

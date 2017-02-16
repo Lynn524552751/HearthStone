@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Spring核心配置文件。主要配置数据代理等对象。未标明可编辑项，请勿修改。 -->
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
+	xmlns:tx="http://www.springframework.org/schema/tx">
+
+	<!-- 模块配置项，继承com.mod.AbsModInitialize -->
+	<!-- 基础项 -->
+	<bean id="modService" class="com.mod.initialize.ModService">
+		<!-- [可编辑] 应用主名称 -->
+		<property name="serviceName" value="HearthStone" />
+	</bean>
+
+	<!-- 日志模块 -->
+	<bean id="modLogger" class="com.mod.initialize.ModLogger">
+		<!-- 前提模块列表 -->
+		<property name="mustBeMods">
+			<map>
+				<!-- [可编辑] 依赖项，输出信息前缀 -->
+				<entry key="modService" value-ref="modService" />
+			</map>
+		</property>
+
+		<!-- [可编辑] 日志级别 -->
+		<!-- logger level: debug,info,error,fatal -->
+		<property name="loggerLevel" value="DEBUG" />
+		<!-- log to database: true,false -->
+		<!-- 该功能实际未实现 -->
+		<property name="enableLog2DB" value="false" />
+	</bean>
+	<!-- 全局邮件服务器初始化 -->
+	<bean id="modEMail" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<!-- [可编辑] 邮件服务器相关配置 -->
+        <property name="host" value="smtp.163.com"/>
+        <property name="port" value="25"/>
+        <property name="username" value="account@site.com"/>
+        <property name="password" value="password"/>
+        <property name="javaMailProperties">
+            <props >
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>  
+                <prop key="mail.smtp.socketFactory.fallback">true</prop> 
+            </props>
+        </property>
+    </bean>
+	<!-- 全局配置初始化 -->
+	<bean id="globalLoader" class="com.basic.util.Global">
+		<!-- [可编辑] 默认模版，同com-dispatcher-servlet.xml中资源对应 -->
+		<property name="defTheme" value="" />
+		<!-- [可编辑] 载入模块，按依赖顺序加载 -->
+		<property name="serviceInfo" ref="modService" />
+		<property name="serviceLogger" ref="modLogger" />
+	</bean>
+	<!-- 全局数据初始化 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+</beans>

@@ -1,0 +1,144 @@
+<div th:fragment="view">         
+<!-- Row Start -->
+          <div class="left-sidebar">
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              <div class="widget">
+                <div class="widget-header">
+                  <div class="title">
+                    	职业选择分布
+                   <!--   <span class="mini-title">                    
+                    </span>-->
+                  </div>
+                </div>
+                <div class="widget-body">
+ 					<div id="playedEchart" style="height:300px;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              <div class="widget">
+                <div class="widget-header">
+                  <div class="title">
+                    	各职业均胜
+                  </div>
+                  
+                </div>
+                <div class="widget-body">
+					<div id="averageEchart" style="height:300px;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              <div class="widget">
+                <div class="widget-header">
+                  <div class="title">
+                   	 胜场分布
+                  </div>
+                </div>
+                <div class="widget-body">
+                	<div id="winsEchart" style="height:300px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Row End -->
+          <!-- Row Start -->
+          <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+              <div class="widget">
+                <div class="widget-header">
+                  <div class="title">数据总计                   
+                  </div>
+                </div>
+				<div class="widget-body">
+				<!-- Row Starts -->
+                    <div class="row">
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-sx-12">
+                		<div class="panel panel-info">
+                  			<div class="panel-heading">
+                    			<h4 class="panel-title"><i class="icon ion-clock text-info"></i>总轮数</h4>
+                  			</div>
+                  			<div class="panel-body"> 
+                  				<h4><span id="runs"></span></h4>                  
+                  			</div>
+                		</div>
+             		</div>
+              		<div class="col-lg-3 col-md-3 col-sm-3 col-sx-12">
+               			<div class="panel panel-info">
+                  		<div class="panel-heading">
+                    		<h4 class="panel-title"><i class="icon ion-clock text-info"></i>总场次</h4>
+                  		</div>
+                  		<div class="panel-body"> 
+                  			<h4><span id="totalGames"></span></h4>                   
+                  		</div>
+                		</div>
+              		</div>
+              		<div class="col-lg-3 col-md-3 col-sm-3 col-sx-12">
+               			<div class="panel panel-info">
+                  		<div class="panel-heading">
+                    		<h4 class="panel-title"><i class="icon ion-clock text-info"></i>均胜</h4>
+                  		</div>
+                  		<div class="panel-body"> 
+                  			<h4><span id="averageWins"></span></h4>                   
+                  		</div>
+                		</div>
+              		</div>
+              		<div class="col-lg-3 col-md-3 col-sm-3 col-sx-12">
+               			<div class="panel panel-info">
+                  		<div class="panel-heading">
+                    		<h4 class="panel-title"><i class="icon ion-clock text-info"></i>胜率</h4>
+                  		</div>
+                  		<div class="panel-body">
+                  			<h4><span id="winRate"></span></h4>                    
+                  		</div>
+                		</div>
+              		</div>
+              		</div>                      
+                    <!-- Row Ends -->
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              <div class="widget">
+                <div class="widget-header">
+                  <div class="title">
+                    	奖励
+                  </div>
+                </div>
+                <div class="widget-body">
+                    <!-- Row Starts -->
+                    <div class="row">
+                      <div class="col-lg-6 col-md-6 col-sm-6 col-sx-12">
+                		<div class="panel panel-info">
+                  			<div class="panel-heading">
+                    			<h4 class="panel-title"><i class="icon ion-clock text-info"></i>金币</h4>
+                  			</div>
+                  			<div class="panel-body"> 
+                  				<!--  <h4>Total:<span id="goldTatal"></span></h4>-->
+                  				<h4>平均:<span id="goldAverage"></span></h4>                   
+                  			</div>
+                		</div>
+             		</div>
+              		<div class="col-lg-6 col-md-6 col-sm-6 col-sx-12">
+               			<div class="panel panel-info">
+                  		<div class="panel-heading">
+                    		<h4 class="panel-title"><i class="icon ion-clock text-info"></i>奥术之尘</h4>
+                  		</div>
+                  		<div class="panel-body">
+                  			<h4>总数:<span id="dustTotal"></span></h4>
+                  			<!--  <h4>Average:<span id="dustAverage"></span></h4>  -->         
+                  		</div>
+                		</div>
+              		</div>
+              		</div>                      
+                    <!-- Row Ends -->
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            </div>            
+          <!-- Row End -->
+</div>
+

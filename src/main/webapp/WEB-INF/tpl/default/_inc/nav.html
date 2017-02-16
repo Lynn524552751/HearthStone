@@ -1,0 +1,17 @@
+<div th:fragment="top">
+	<ul th:if="${navApp1}">
+		<li th:each=" n, st : ${ session.navs }" th:if="${ n.parentId eq 0 }"  th:class="${ n.id eq navApp1.id ? 'active' : ''}">
+			<a th:href="@{'/' + ${n.navApp}}"> <i th:class="${n.navIcon}"></i> <span th:text="${n.navName}">一级</span></a>
+			<ul th:if="${ n.childNav }">
+				<li th:each="n2:${session.navs}" th:if="${n2.parentId eq n.id }">
+					<a th:href="@{ '/' + ${n2.navApp}}"> <i th:class="${n2.navIcon}"></i> <span th:text="${n2.navName}">二级</span></a>
+					<ul th:if="${ n2.childNav }">
+						<li th:each="n3:${session.navs}" th:if="${n3.parentId eq n2.id}">
+							<a th:href="@{'/' + ${n3.navApp}}"> <i th:class="${n3.navIcon}"></i> <span th:text="${n3.navName}">三级</span></a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+       </li>
+	</ul>
+</div>

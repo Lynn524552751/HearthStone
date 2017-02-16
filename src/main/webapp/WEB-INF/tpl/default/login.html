@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head th:include="${tpl} + '/_inc/head'::min" />
+<body>
+
+	<!-- Main Container start -->
+	<div class="dashboard-container">
+
+		<div class="container">
+
+			<!-- Row Start -->
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-md-offset-4">
+					<div class="sign-in-container">
+						<form  th:action="@{/login}"  class="login-wrapper" method="post">
+							<div class="header">
+								<div class="row">
+									<div class="col-md-12 col-lg-12">
+										<h3>
+											外星人入侵后台管理系统<img th:src="@{ ${tpl} + '/res/img/logo1.png'}" alt="Logo" class="pull-right" />
+										</h3>
+										 <p th:text="${loginFailure} ? #{${loginFailure}} : #{login.msg.inpt}"  th:class="${loginFailure} ? 'text-danger' : ''">Fill out the form below to login.</p>
+									</div>
+								</div>
+							</div>
+							<div class="content">
+								<div class="form-group">
+									<label for="userName">用户名称</label> <input type="text"
+										id="userName" name="userName" placeholder="User Name" />
+								</div>
+								<div class="form-group">
+									<label for="Password1">登陆密码</label> <input type="password"
+										id="passWord"  name="passWord" placeholder="Password" />
+								</div>
+							</div>
+							<div class="actions">
+								<input class="btn btn-danger" name="Login" type="submit"
+									value="Login" /> <a class="link" href="#">Forgot Password?</a>
+								<div class="clearfix"></div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- Row End -->
+
+		</div>
+	</div>
+	<!-- Main Container end -->
+
+	<spt th:include="${tpl} + '/_inc/script'::jquery_min" />
+
+</body>
+</html>

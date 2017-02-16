@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head th:include="${tpl} + '/_inc/head'::min"></head>
+<body>
+	<!-- Header Start -->
+<header th:include="${tpl} + '/_inc/header'::min" />
+	<!-- Header End -->
+
+	<!-- Main Container start -->
+	<div class="dashboard-container">
+		<div class="container">
+			<!-- Top Nav Start -->
+			<div id='cssmenu'   th:include="${tpl} + '/_inc/nav'::top"/>
+			<!-- Top Nav End -->
+
+			<!-- Sub Nav End -->
+			<div class="sub-nav hidden-sm hidden-xs"  th:include="${tpl} + '/_inc/sub'::top"/>
+			<!-- Sub Nav End -->
+			
+			<!-- Dashboard Wrapper Start -->
+			<div class="dashboard-wrapper-lg" th:include="${tpl} + '/_summary/_view'::view" />
+			<!-- Dashboard Wrapper End -->
+
+			<footer th:include="${tpl} + '/_inc/foot'::min" />
+
+		</div>
+	</div>
+	<!-- Main Container end -->
+
+	<spt th:include="${tpl} + '/_inc/script'::jquery_min" />	
+	<spt th:include="${tpl} + '/_inc/script'::jquery_ui" />	
+	<!-- Custom JS -->
+	<script type="text/javascript"
+		th:src="@{${tpl}+'/res/cjs/Date.format.js'}"></script>
+	<spt th:include="${tpl} + '/_inc/script'::alertify" />
+	<spt th:include="${tpl} + '/_inc/script'::echarts" />
+	<!-- page Js -->
+	<spt th:include="${tpl} + '/_inc/script'::dwr" />
+	<spt th:include="${tpl} + '/_inc/script'::dwrService('SummaryCtrl')"/>
+	<script type='text/javascript' th:src="@{${tpl}+'/res/cjs/'+${navApp}+'.js'}"></script>
+</body>
+</html>

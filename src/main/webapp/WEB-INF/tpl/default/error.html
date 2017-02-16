@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head th:include="${tpl} + '/_inc/head'::min" />
+<body>
+	<!-- Main Container start -->
+	<div class="dashboard-container">
+
+		<div class="container">
+
+			<!-- Row Start -->
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-md-offset-4">
+
+					<div class="page-not-found center-align-text">
+						<div th:switch="${errCode}">
+							<error th:case="'400'">
+							<div class="number">400</div>
+							<h3 th:text="#{error.400.title}">Internal Server Error.</h3>
+							<p  th:text="#{error.400.content}">
+								We are fixing it! <br /> Please come back in a while.
+							</p>
+							</error>
+							<error th:case="'404'">
+							<div class="number">404</div>
+							<h3 th:text="#{error.404.title}">Internal Server Error.</h3>
+							<p  th:text="#{error.404.content}">
+								We are fixing it! <br /> Please come back in a while.
+							</p>
+							</error>
+							<error th:case="'500'">
+							<div class="number">500</div>
+							<h3 th:text="#{error.500.title}">Internal Server Error.</h3>
+							<p  th:text="#{error.500.content}">
+								We are fixing it! <br /> Please come back in a while.
+							</p>
+							</error>
+							<error th:case="'*'">
+							<div class="number">404</div>
+							<h3 th:text="#{error.404.title}">Internal Server Error.</h3>
+							<p  th:text="#{error.404.content}">
+								We are fixing it! <br /> Please come back in a while.
+							</p>
+							</error>
+						</div>
+						<form action="">
+							<div class="input-group">
+								<input type="text" class="form-control" /> <span
+									class="input-group-btn">
+									<button class="btn btn-primary" type="button" th:text="#{label.sreach}">Search</button>
+								</span>
+							</div>
+						</form>
+					</div>
+
+				</div>
+			</div>
+			<!-- Row End -->
+		</div>
+	</div>
+	<!-- Main Container end -->
+
+	<spt th:include="${tpl} + '/_inc/script'::jquery_min" />
+
+</body>
+</html>

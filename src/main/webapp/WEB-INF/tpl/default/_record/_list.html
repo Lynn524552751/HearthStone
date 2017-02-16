@@ -1,0 +1,88 @@
+<div th:fragment="view">         
+          <!-- Left Sidebar Start -->
+          <div class="left-sidebar">
+            
+            <!-- Row Start -->
+           <div class="row">
+              <div class="col-lg-12 col-md-12">
+                <div class="widget no-margin">
+                  <div class="widget-header">
+					<div class="title">
+						竞技场记录列表<span class="mini-title"></span>
+					</div>
+					<span class="tools">
+					</span>
+                  </div>
+                  <div class="widget-body">
+                  <form class="form-horizontal">
+						<div class="form-group">
+                            <div class="col-sm-3">
+                              <select id="edit-occupation" class="form-control">
+                               	<option value="-1">所有职业</option>
+                                <option value="mage">法师</option>
+                                <option value="paladin">圣骑士</option>
+                                <option value="hunter">猎人</option>
+                                <option value="rouge">盗贼</option>
+                                <option value="shaman">萨满</option>
+                                <option value="warrior">战士</option>
+                                <option value="preist">牧师</option>
+                                <option value="warlock">术士</option>
+                                <option value="druid">德鲁伊</option>
+                              </select>
+                            </div>
+                            <div class="col-sm-2">
+                              <select id="edit-wins" class="form-control">
+                               	<option value="-1">所有胜场</option>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                              </select>
+                            </div> 
+                            <div class="col-sm-2">
+                          <button id="btn_view" type="button" class="btn btn-default" onclick="Record.list.searchBtnClick();">
+                					<i class="fa fa-search"></i>&nbsp;查看
+            					</button>
+            					</div>                          
+                          </div>
+                          
+                          </form>                        
+                    <div class="row form-group">
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">  
+                            <div id="toolbar">
+                            	<button id="btn_view" type="button" class="btn btn-primary" onclick="Record.list.viewBtnClick();">
+                					<i class="fa fa-file-o" aria-hidden="true"></i>&nbsp;查看
+            					</button>
+            					<button id="btn_add" type="button" class="btn btn-info" onclick="Record.list.addBtnClick();">
+                					<i class="fa fa-plus" aria-hidden="true"></i>&nbsp;新增
+            					</button>
+            					<button id="btn_edit" type="button" class="btn btn-success" onclick="Record.list.editBtnClick();">
+                					<i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;修改
+            					</button>
+            					<!-- <button id="btn_delete" type="button" class="btn btn-danger" onclick="Record.list.delBtnClick();">
+                					<i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;删除
+           	 					</button> -->
+        					</div> 
+                      	<table id="table">                    		
+                      	</table>                    
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>  
+                              	</div>     
+            <!-- Row End -->
+
+         </div>
+          <!-- Left Sidebar End -->
+</div>
+
