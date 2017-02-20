@@ -135,7 +135,7 @@ Record.add = {
 			data.time = Date.parse( Record._view.time.val() );
 			//console.log(data);
 			//
-			if(Record.checkRecordData( data )){
+			if(Record.checkData( data )){
 				Record.add.add( data );
 			}
 		},

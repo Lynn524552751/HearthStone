@@ -154,13 +154,6 @@ public class RecordCtrl extends AbsDBExecutor implements SysConstants,
 		String sort = request.getParameter("sort");
 		String occupation = request.getParameter("occupation");
 		String wins = request.getParameter("wins");
-		System.out.println("===========Start:loadList=============");
-		System.out.println("limit = " + limit);
-		System.out.println("offset = " + offset);
-		System.out.println("order = " + order);
-		System.out.println("sort = " + sort);
-		System.out.println("occupation = " + occupation);
-		System.out.println("wins = " + wins);
 
 		ServiceResult<List<HsArena>> serviceResult = recordService.loadList(
 				limit, offset, order, sort, occupation, wins);
